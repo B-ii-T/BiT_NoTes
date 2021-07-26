@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginEnd="10dp"
     android:layout_marginStart="10dp"
-    android:layout_marginTop="10dp">
+    android:layout_marginTop="20dp"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="15dp"
+    app:cardBackgroundColor="#00FFB3"
+    android:outlineAmbientShadowColor="#00FFB3"
+    android:outlineSpotShadowColor="#00FFB3"
+    android:backgroundTint="#0F2727">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -12,6 +20,8 @@
         android:padding="8dp">
 
         <TextView
+            android:textColor="#00FFB3"
+            android:layout_marginEnd="5dp"
             android:id="@+id/priority"
             android:layout_alignParentEnd="true"
             android:text="1"
@@ -21,6 +31,9 @@
 
 
         <TextView
+            android:textAllCaps="true"
+            android:textColor="#00FFB3"
+            android:paddingStart="10dp"
             android:id="@+id/note_title"
             android:text="Title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -32,6 +45,9 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:textColor="#A800FFB3"
+            android:layout_marginTop="15dp"
+            android:paddingStart="10dp"
             android:id="@+id/note_text"
             android:layout_below="@id/note_title"
             android:text="note text"

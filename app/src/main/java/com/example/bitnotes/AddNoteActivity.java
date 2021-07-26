@@ -2,6 +2,7 @@ package com.example.bitnotes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,12 +12,17 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import es.dmoral.toasty.Toasty;
+import maes.tech.intentanim.CustomIntent;
+
 public class AddNoteActivity extends AppCompatActivity {
 
     public static final String EXTRA_TITLE = "com.example.bitnotes.EXTRA_TITLE";
     public static final String EXTRA_NOTE_TEXT = "com.example.bitnotes.EXTRA_NOTE_TEXT";
     public static final String EXTRA_PR = "com.example.bitnotes.EXTRA_PR";
     public static final String EXTRA_ID = "com.example.bitnotes.EXTRA_ID";
+
+    String intent_type;
 
     private EditText title, note_text, priority;
 
@@ -36,10 +42,17 @@ public class AddNoteActivity extends AppCompatActivity {
             title.setText(intent.getStringExtra(EXTRA_TITLE));
             note_text.setText(intent.getStringExtra(EXTRA_NOTE_TEXT));
             priority.setText( String.valueOf(intent.getIntExtra(EXTRA_PR, 1)));
+            intent_type = "fadein-to-fadeout";
         } else {
             setTitle("AdD NoTe");
+            intent_type = "up-to-bottom";
         }
 
+    }
+    @Override
+    public void finish() {
+        super.finish();
+        CustomIntent.customType(this, intent_type+"");
     }
 
     private void saveNote() {
@@ -55,10 +68,14 @@ public class AddNoteActivity extends AppCompatActivity {
         }
 
         if (pr == 0) {
-            Toast.makeText(this, "InserT a CorrecT VaLue F0r PrioRiTY !", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "InserT a CorrecT VaLue F0r PrioRiTY !", Toast.LENGTH_SHORT).show();
+            Toasty.error(AddNoteActivity.this, "InserT a CorrecT VaLue F0r PrioRiTY !", Toasty.LENGTH_SHORT).show();
+
         }
         if (title_edit_text.trim().isEmpty() || note_edit_text.trim().isEmpty() || pr_edit_text.trim().equals("")) {
-            Toast.makeText(this, "AlL FieLDs aRe ReQuiReD !", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "AlL FieLDs aRe ReQuiReD !", Toast.LENGTH_SHORT).show();
+            Toasty.info(AddNoteActivity.this, "AlL FieLDs aRe ReQuiReD !", Toasty.LENGTH_SHORT).show();
+
             return;
         }
         Intent data = new Intent();

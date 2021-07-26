@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#DF00FFB3"
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
+        android:background="@color/black"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/note_item"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:backgroundTint="#C900FFB3"
+        android:outlineProvider="none"
         android:id="@+id/add_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="32dp"
-        android:src="@drawable/ic_add"/>
+        android:src="@drawable/ic_add"
+        app:borderWidth="0dp"
+        android:outlineSpotShadowColor="#00FFB3"
+        android:outlineAmbientShadowColor="#00FFB3"
+        android:contentDescription="add note" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

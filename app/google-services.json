@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "242388124853",
+    "project_id": "bit-notes",
+    "storage_bucket": "bit-notes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242388124853:android:05e4fe3637c4232bdfaafc",
+        "android_client_info": {
+          "package_name": "com.example.bitnotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242388124853-gn24huglqdcr4vvb858c8vmp907les8k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFO-AJ97m9jWLyKJXKpEC0Ccr2urBS5rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "242388124853-gn24huglqdcr4vvb858c8vmp907les8k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
