@@ -1,6 +1,9 @@
 package com.example.bitnotes;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -149,10 +153,38 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.delete_all:
-                noteViewModel.deleteAll();
+                Context context;
+                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this, R.style.AlertDialogStyle);
+                alert.setTitle("WouLd U LiKe T0 deLeTe alL NoTes ?");
+                alert.setIcon(R.drawable.ic_delete);
+                alert.setCancelable(true);
+                alert.setPositiveButton("YeS", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        noteViewModel.deleteAll();
 //                Toast.makeText(this, "alL NoTes aRe deLeTeD", Toast.LENGTH_SHORT).show();
-                Toasty.info(MainActivity.this, "alL NoTes aRe deLeTeD", Toasty.LENGTH_SHORT).show();
+                        Toasty.info(MainActivity.this, "alL NoTes aRe deLeTeD", Toasty.LENGTH_SHORT).show();
+                    }
+                });
+                alert.setNegativeButton("N0", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog alertDialog = alert.create();
+                alertDialog.show();
+                alertDialog.getButton(alertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#00FFB3"));
+                alertDialog.getButton(alertDialog.BUTTON_NEGATIVE).setTextColor(Color.WHITE);
+
                 return true;
+
+            case R.id.settings:
+                Intent intent = new Intent(MainActivity.this, Settings.class);
+                startActivity(intent);
+                CustomIntent.customType(this, "up-to-bottom");
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -3,5 +3,6 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/</item>
         <item>@font/aclonica</item>
+        <item>@font/annie_use_your_telescope</item>
     </array>
 </resources>
