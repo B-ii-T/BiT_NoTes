@@ -38,13 +38,13 @@ public class AddNoteActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ID)) {
-            setTitle("EdiTe NoTe");
+            setTitle("Edit note");
             title.setText(intent.getStringExtra(EXTRA_TITLE));
             note_text.setText(intent.getStringExtra(EXTRA_NOTE_TEXT));
             priority.setText( String.valueOf(intent.getIntExtra(EXTRA_PR, 1)));
             intent_type = "fadein-to-fadeout";
         } else {
-            setTitle("AdD NoTe");
+            setTitle("New note");
             intent_type = "up-to-bottom";
         }
 
@@ -69,13 +69,12 @@ public class AddNoteActivity extends AppCompatActivity {
 
         if (pr == 0) {
 //            Toast.makeText(this, "InserT a CorrecT VaLue F0r PrioRiTY !", Toast.LENGTH_SHORT).show();
-            Toasty.error(AddNoteActivity.this, "InserT a CorrecT VaLue F0r PrioRiTY !", Toasty.LENGTH_SHORT).show();
-
+            Toasty.error(AddNoteActivity.this, "unaccepted priority value !", Toasty.LENGTH_SHORT).show();
+            return;
         }
         if (title_edit_text.trim().isEmpty() || note_edit_text.trim().isEmpty() || pr_edit_text.trim().equals("")) {
 //            Toast.makeText(this, "AlL FieLDs aRe ReQuiReD !", Toast.LENGTH_SHORT).show();
-            Toasty.info(AddNoteActivity.this, "AlL FieLDs aRe ReQuiReD !", Toasty.LENGTH_SHORT).show();
-
+            Toasty.info(AddNoteActivity.this, "all fields required !", Toasty.LENGTH_SHORT).show();
             return;
         }
         Intent data = new Intent();

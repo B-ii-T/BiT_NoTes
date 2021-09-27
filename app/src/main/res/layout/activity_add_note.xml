@@ -40,7 +40,9 @@
 
 
     <EditText
+        android:paddingTop="20dp"
         android:textColorHint="#7EFFFFFF"
+        android:hint="Write a note . . ."
         android:textColor="@color/white"
         android:gravity="start"
         android:background="@null"

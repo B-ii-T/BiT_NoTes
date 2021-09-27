@@ -15,18 +15,50 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/note_item"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:backgroundTint="#C900FFB3"
-        android:outlineProvider="none"
-        android:id="@+id/add_note"
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:backgroundTint="#C900FFB3"-->
+<!--        android:outlineProvider="none"-->
+<!--        android:id="@+id/add_note"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom|end"-->
+<!--        android:layout_margin="32dp"-->
+<!--        android:src="@drawable/ic_add"-->
+<!--        app:borderWidth="0dp"-->
+<!--        android:outlineSpotShadowColor="#00FFB3"-->
+<!--        android:outlineAmbientShadowColor="#00FFB3"-->
+<!--        android:contentDescription="add note" />-->
+
+
+    <LinearLayout
+        android:id="@+id/empty"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="32dp"
-        android:src="@drawable/ic_add"
-        app:borderWidth="0dp"
-        android:outlineSpotShadowColor="#00FFB3"
-        android:outlineAmbientShadowColor="#00FFB3"
-        android:contentDescription="add note" />
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_gravity="center"
+            android:id="@+id/robot"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/robot" />
+        <TextView
+            android:id="@+id/empty_text"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#AE00FFB3"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No notes, create some !"/>
+
+    </LinearLayout>
+
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

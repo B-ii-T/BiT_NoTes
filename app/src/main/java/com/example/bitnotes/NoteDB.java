@@ -38,10 +38,11 @@ public abstract class NoteDB extends RoomDatabase {
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            noteDao.insert(new Note("adding notes", "click the plus button and fill the required fields to add a new note.", 1));
-            noteDao.insert(new Note("deleting notes", "swipe the note you want to delete in any horizontal direction.", 2));
-            noteDao.insert(new Note("sorting notes", "notes are sorted by priority, other sorting options maybe available with new updates.", 4));
-            noteDao.insert(new Note("editing notes", "to edit a note simply click it and modify it.", 3));
+            noteDao.insert(new Note("add note", "click the plus button and fill the required fields to add a new note.", 1));
+            noteDao.insert(new Note("delete note", "swipe the note you want to delete in any horizontal direction.", 4));
+            noteDao.insert(new Note("notes sorting", "notes are sorted by priority, other sorting options maybe available with new updates.", 3));
+            noteDao.insert(new Note("edit note", "to edit a note simply click it and modify it.", 2));
+            noteDao.insert(new Note("delete all notes", "to delete all notes click the delete button above", 5));
             return null;
         }
     }
